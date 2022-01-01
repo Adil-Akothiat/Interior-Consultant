@@ -1,0 +1,20 @@
+const open = document.querySelector(".open");
+const close = document.querySelector(".close");
+const nav = document.querySelector(".list");
+const lis = document.querySelectorAll("ul li");
+open.onclick = function() {
+    nav.style.transform = "translateX(0%)";
+    document.querySelector("section").style.visibility="hidden";
+}
+close.onclick = function() {
+    nav.style.transform = "translateX(-100%)";
+    document.querySelector("section").style.visibility="visible";
+}
+for(i=0;i<lis.length;i++) {
+    lis[i].onclick = function() {
+        lis.forEach(li=> {
+            li.firstElementChild.classList.remove("line");
+        })
+        this.firstElementChild.classList.add("line");
+    }
+}
